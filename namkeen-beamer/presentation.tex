@@ -1,0 +1,144 @@
+\documentclass[xcolor=dvipsnames,compress]{beamer}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{epstopdf}
+\definecolor{nustgray}{RGB}{0,72,121}
+\definecolor{nust}{RGB}{0,72,121}
+\usetheme{Frankfurt}
+\useoutertheme[subsection=false]{miniframes}
+\useinnertheme{rectangles}
+\usecolortheme[named=nust]{structure}
+\setbeamercolor*{palette primary}{use=structure,fg=black,bg=nust}
+\setbeamertemplate{items}[circle]
+
+\defbeamertemplate*{title page}{customized}[1][]
+{
+  \vbox{}
+  \vfill
+  \begin{centering}
+    \begin{beamercolorbox}[sep=8pt,center,rounded=true,shadow=true]{title}
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%     
+    \end{beamercolorbox}%
+    \vskip1em
+    \vfill
+    \par
+    \begin{beamercolorbox}[sep=8pt,center,#1]{author}
+      \usebeamerfont{author} \insertauthor
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center,#1]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center,#1]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}\vskip0.5em
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+  \end{centering}
+}
+
+
+\AtBeginSection[]{
+\begin{frame}
+	\begin{center}
+		\begin{beamercolorbox}[sep=8pt,center,rounded=true,shadow=true]{part title}
+        \usebeamerfont{part title}\insertsection
+     \end{beamercolorbox}
+\end{center}
+\end{frame}
+}
+
+\setbeamercolor{section in head/foot}{fg=white, bg=nustgray}
+\setbeamercolor{author in head/foot}{fg=black, bg=nust}
+\setbeamercolor{logo in head/foot}{fg=white, bg=nustgray}
+\setbeamercolor{page number in head/foot}{fg=black, bg=nust}
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.10\paperwidth,ht=2.25ex,dp=1ex,center]{logo in head/foot}%
+    \usebeamerfont{logo in head/foot}NUST SEECS
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.20\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.65\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshortauthor
+  \end{beamercolorbox}}%
+  \begin{beamercolorbox}[wd=.05\paperwidth,ht=2.25ex,dp=1ex,center]{page number in head/foot}%
+    \usebeamerfont{page number in head/foot}\insertframenumber
+  \end{beamercolorbox}%
+  \vskip0pt%
+}
+
+
+\begin{document}
+\setbeamertemplate{navigation symbols}{}
+
+\title[Template]{ Bearmer Template:\\ Using official colors of NUST}
+		
+\author[hasan.alikhattak@seecs.edu.pk]{Prof. Dr. Hasan Ali Khattak\\ \small{hasan.alikhattak@seecs.edu.pk}\\~\\ \textbf{Supervisor:} Prof. Hasan Ali Khattak\\ \textbf{Co-Supervisor:}Hasan Ali Khattak\vspace{0.3cm}}
+
+\institute{\hfill\begin{columns}\begin{column}{0.20\columnwidth}\hfill\includegraphics[width=0.6\columnwidth]{images/nust-logo}\end{column} \begin{column}{0.45\columnwidth}\centering MS/PhD. in Computer Science\\Dept.\ of Computing\\  School of Electrical Engineering and Computer Science (NUST-SEECS)\\ NUST, Pakistan.\end{column}\begin{column}{0.2\columnwidth}\hfill\includegraphics[width=1\columnwidth]{images/seecslogo}\end{column}\end{columns}}
+
+
+\date{\today}
+
+\frame[plain]{\vspace{1.1cm}\titlepage} 
+\section[Section 1]{Introduction}
+\subsection{}
+
+\frame{\frametitle{PhD}
+It All depends on Funding . . . 
+\begin{figure}
+\centering
+\includegraphics[width=0.6\columnwidth]{images/phd-image.png}
+\end{figure}
+}
+
+\section[Section 2]{Proposal}
+\subsection{}
+
+\frame{\frametitle{Title 2}
+\begin{columns}
+
+\begin{column}{0.5\textwidth}
+\textbf{This is in a Column}
+\visible<2->{Item 1} \\
+\vspace{0.5cm}
+\visible<3->{Item 2} \\
+\vspace{0.5cm}
+\visible<4->{Item 3}
+\end{column}
+
+\begin{column}{0.5\textwidth}
+\centering
+\includegraphics[width=0.6\columnwidth]{images/phd-image.png}\\
+\textbf{This is also in a Column}
+\end{column}
+\end{columns}
+}
+
+\frame{\frametitle{More Text goes here}
+
+\begin{block}{Block}
+Bla bla bla
+\end{block}
+}
+
+\frame{\frametitle{Conclusion}
+In short this theme seems to be pretty and thus we will be using it right!: 
+}
+
+
+\section{}
+\begin{frame}
+Thank you for keeping up. \textbf{Any Questions?} \\
+\end{frame}
+
+\end{document}

@@ -1,0 +1,361 @@
+\documentclass[10pt]{beamer}
+\usetheme[
+%%% options passed to the outer theme
+%    hidetitle,           % hide the (short) title in the sidebar
+%    hideauthor,          % hide the (short) author in the sidebar
+%    hideinstitute,       % hide the (short) institute in the bottom of the sidebar
+%    shownavsym,          % show the navigation symbols
+%    width=2cm,           % width of the sidebar (default is 2 cm)
+%    hideothersubsections,% hide all subsections but the subsections in the current section
+%    hideallsubsections,  % hide all subsections
+%    left                % right of left position of sidebar (default is right)
+  ]{Namkeen}
+  
+% If you want to change the colors of the various elements in the theme, edit and uncomment the following lines
+% Change the bar and sidebar colors:
+%\setbeamercolor{Aalborg}{fg=red!20,bg=red}
+%\setbeamercolor{sidebar}{bg=red!20}
+% Change the color of the structural elements:
+%\setbeamercolor{structure}{fg=red}
+% Change the frame title text color:
+%\setbeamercolor{frametitle}{fg=blue}
+% Change the normal text color background:
+%\setbeamercolor{normal text}{bg=gray!10}
+% ... and you can of course change a lot more - see the beamer user manual.
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+\usepackage{helvet}
+
+
+% colored hyperlinks
+\newcommand{\chref}[2]{%
+  \href{#1}{{\usebeamercolor[bg]{Namkeen}#2}}%
+}
+
+\title[The Namkeen Beamer Theme]% optional, use only with long paper titles
+{The Namkeen Beamer Theme}
+
+\subtitle{v.\ 1.0}  % could also be a conference name
+
+\date{\today}
+
+\author[Hasan Ali Khattak] % optional, use only with lots of authors
+{
+  Prof. Dr. Hasan Ali Khattak\\
+  \chref{mailto:hasan.alikhattak@seecs.edu.pk}{{\tt hasan.alikhattak@seecs.edu.pk}}
+}
+% - Give the names in the same order as they appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation. See the beamer manual for an example
+
+\institute[
+  {\includegraphics[width=0.70\columnwidth]{images/seecslogo}}\\ %insert a company, department or university logo
+  Dept.\ of Computing
+] % optional - is placed in the bottom of the sidebar on every slide
+{% is placed on the bottom of the title page
+  Dept.\ of Computing\\  
+  School of Electrical Engineering and Computer Science\\ 
+  NUST, Sector H12\\Islamabad, 44500 Pakistan.
+  
+  %there must be an empty line above this line - otherwise some unwanted space is added between the university and the country (I do not know why;( )
+}
+
+% specify the logo in the top right/left of the slide
+\pgfdeclareimage[height=1cm]{mainlogo}{images/nust-logo} % placed in the upper left/right corner
+\logo{\pgfuseimage{mainlogo}}
+
+% specify a logo on the titlepage (you can specify additional logos an include them in 
+% institute command below
+\pgfdeclareimage[height=1cm]{titlepagelogo}{images/seecslogo} % placed on the title page
+%\pgfdeclareimage[height=1.5cm]{titlepagelogo2}{images/logo} % placed on the title page
+\titlegraphic{% is placed on the bottom of the title page
+  \pgfuseimage{titlepagelogo}
+%  \hspace{1cm}\pgfuseimage{titlepagelogo2}
+}
+
+\begin{document}
+% the titlepage
+{\wavesbg
+\begin{frame}[plain,noframenumbering] % the plain option removes the sidebar and header from the title page
+  \titlepage
+\end{frame}}
+%%%%%%%%%%%%%%%%
+
+% TOC
+\begin{frame}{Agenda}{}
+\tableofcontents
+\end{frame}
+%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+% motivation for creating this theme
+\begin{frame}{Introduction}{}
+\begin{block}{Why the Namkeen beamer theme?}
+  \begin{itemize}
+    \item<1-> In October 2020, I had to give a presentation at an International Conference.
+    \item<2-> Since there was no NUST School of Electrical Engineering and Computer Science (NUST-SEECS) branded beamer theme, I tried to create the Namkeen beamer theme.
+    \item<3-> This theme is based on the open source AAU sidebar theme so that other researchers and students at NUST could use the theme for their presentations.
+  \end{itemize}
+\end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%
+
+\subsection{License}
+% the license
+\begin{frame}{Introduction}{License}
+  \begin{itemize}
+    \item<1-> I have used the logo from \chref{https://nust.edu.pk/about-us/nust-brand/}{https://nust.edu.pk}. As long as you use the theme for making presentations in connection with your work at NUST, you are allowed to use the NUST logo.
+    \item<2-> The rest of the theme is provided under the GNU General Public License v. 3 (GPLv3). This basically means that you can redistribute it and/or modify it under the same license. For more information on the GPL license see \chref{http://www.gnu.org/licenses/}{http://www.gnu.org/licenses/}
+  \end{itemize}
+\end{frame}
+%%%%%%%%%%%%%%%%
+
+\section{Installation}
+% general installation instructions
+\begin{frame}{Installation}
+  The theme consists of four files
+  \begin{enumerate}
+    \item {\tt beamerthemeNamkeen.sty}
+    \item {\tt beamerinnerthemeNamkeen.sty}
+    \item {\tt beamerouterthemeNamkeen.sty}
+    \item {\tt beamercolorthemeNamkeen.sty}
+  \end{enumerate}
+  The theme can either be installed for local or global use.
+  \pause
+  \begin{block}{Local Installation}
+    The simplest way of installing the theme is by placing the four theme files in the same folder as your presentation. When you download the theme, the four theme files are located in the {\tt local} folder.
+  \end{block}
+\end{frame}
+
+% general installation instructions
+\begin{frame}{Installation}
+  \begin{block}{Global Installation}
+  \begin{itemize}
+     \item If you wish to make the theme globally available, you must put the files in your local latex directory tree. The location of the root of the local directory tree depends on the operating system and the latex distribution. On the following slides, you can read the instructions for some common setups.
+    \item When you download the theme, the four theme files are embedded in a directory structure (in the {\tt global} folder) ready to be copied directly to the root of your local directory tree.
+    \item On the following slides, we refer to this directory structure as {\tt <dirstruct>}. \alert{Note} that some parts of the directory may already exist if you have installed other packages in your local latex directory tree. If this is the case, you simply merge {\tt <dirstruct>} with your existing setup.
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+\subsection{GNU/Linux}
+% installation on GNU/Linux
+\begin{frame}{Installation}{GNU/Linux}
+  \begin{block}{Ubuntu with TeX Live}
+    \begin{enumerate}
+      \item Place the {\tt <dirstruct>} in the root of your local latex directory tree. By default it is\\
+        {\tt \textasciitilde /texmf}\\
+        If the root does not exist, create it. The symbol {\tt \textasciitilde} refers to your home folder, i.e., {\tt /home/<username>}
+      \item In a terminal run\\
+        {\tt \$ texhash \textasciitilde /texmf}
+    \end{enumerate}
+  \end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%
+
+\subsection{Microsoft Windows}
+% installation on Microsoft Windows
+\begin{frame}{Installation}{Microsoft Windows}
+  \begin{block}{Windows with MiKTeX}
+    Apparently, MiKTeX does not include a local latex directory tree by default. Therefore, you first have to create it.
+    \begin{enumerate}
+      \item To do this, create a folder {\tt <somewhere>} named, e.g., {\tt texmf}
+      \item Add this folder in the Roots tab of the MiKTeX Settings dialog
+      \item Place the {\tt <dirstruct>} in your newly created local latex directory tree\\
+    {\tt <somewhere>\textbackslash texmf}\\
+      \item Open the MiKTeX Settings dialog and click Refresh FNDB.
+    \end{enumerate}
+  \end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%
+
+% installation on Microsoft Windows Cont'd
+\begin{frame}{Installation}{Microsoft Windows}
+  \begin{block}{Windows with TeX Live}
+    In the advanced TeX Live Installer, you can manually change the default position of the root of the local latex directory tree. However, we assume the default position below.
+    \begin{enumerate}
+      \item Place the {\tt <dirstruct>} in your local latex directory tree\\
+        {\tt \%USERPROFILE\%\textbackslash texmf}\\
+        If it does not exist, create it. In XP {\tt \%USERPROFILE\%} is\\
+      {\tt c:\textbackslash Document and Settings\textbackslash<username>}\\
+      by default, and in Vista and above it is by default\\
+      {\tt c:\textbackslash Users\textbackslash<username>}
+      \item Open the TeX Live Manager dialog and select 'Update filename database' under 'Actions'.
+    \end{enumerate}
+  \end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%
+
+\subsection{Mac OS X}
+% installation on Mac OS X
+\begin{frame}{Installation}{Mac OS X}
+  \begin{block}{Mac OS X with MacTeX}
+     Place the {\tt <dirstruct>} in the root of your local latex directory tree. By default it is\\
+        {\tt \textasciitilde /Library/texmf}\\
+        If the root does not exist, create it. The symbol {\tt \textasciitilde} refers to your home folder, i.e., {\tt /home/<username>}
+  \end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%
+
+\subsection{Required Packages}
+% list of required packages
+\begin{frame}{Installation}{Required Packages}
+  Of course, you have to have the Beamer class installed. In addition, the theme loads two packages
+  \begin{itemize}
+    \item TikZ\footnote{By the way, TikZ is an awesome package for creating beautiful graphics. If you do not believe me, then have a look at these \chref{http://www.texample.net/tikz/examples/}{online examples} or the \chref{http://tug.ctan.org/tex-archive/graphics/pgf/base/doc/generic/pgf/pgfmanual.pdf}{pgf user manual}. If you want to create beautiful plots, you should use the pgfplots package which is based on TikZ.}
+    \item calc
+  \end{itemize}
+  These packages are very common and should therefore be included in your latex distribution.
+\end{frame}
+%%%%%%%%%%%%%%%%
+
+\section{User Interface}
+\subsection{Loading the Theme and Theme Options}
+% list of the themes and options
+\begin{frame}{User Interface}{Loading the Theme and Theme Options}
+  \begin{block}{The Presentation Theme}
+    It is very simple to load the presentation theme. Just type\\
+    {\tt \textbackslash usetheme[<options>]\{Namkeen\}}\\
+    which is exactly the same way other beamer presentation themes are loaded. The presentation theme loads the inner, outer and color Namkeen theme files and passes the {\tt <options>} on to these files.
+  \end{block}
+  \begin{block}{The Inner Theme}
+    You can load the inner theme directly by\\
+    {\tt \textbackslash useinnertheme\{Namkeen\}}\\
+    and it has no options.
+  \end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%
+
+% list of the themes and options
+\begin{frame}{User Interface}{Loading the Theme and Theme Options}
+  \begin{block}{The Outer Theme}
+    You can load the outer theme directly by\\
+    {\tt \textbackslash useoutertheme[<options>]\{Namkeen\}}\\
+    Currently, the theme options are
+  \begin{itemize}
+    \item {\tt hidetitle}: Hide the (short) title in the sidebar
+    \item {\tt hideauthor}: hide the (short) author in the sidebar
+    \item {\tt hideinstitute}: hide the (short) institute in the bottom of the sidebar
+    \item {\tt shownavsym}: show the navigation symbols
+    \item {\tt left} or {\tt right}: position of the sidebar (default is right)
+    \item {\tt width=<length>}: width of the sidebar (default is 2 cm).
+    \item {\tt hideothersubsections}: hide all subsections but the subsections in the current section
+    \item {\tt hideallsubsections}: hide all subsections
+  \end{itemize}
+  The last four options are inherited from the outer sidebar theme.
+  \end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%
+
+% list of the themes and options
+\begin{frame}{User Interface}{Loading the Theme and Theme Options}
+  \begin{block}{The Color Theme}
+    You can load the color theme directly by\\
+    {\tt \textbackslash usecolortheme\{Namkeen\}}\\
+    and it has no options.
+  \end{block}
+  \pause
+  \begin{block}{The Color Element {\tt Namkeen}}
+    The color theme defines a new beamer color element named {\tt Namkeen} whose foreground and background colors are
+    \begin{itemize}
+      \item fg: {\usebeamercolor[fg]{Namkeen}light blue (\{RGB\}\{194,193,204\})}
+      \item bg: {\usebeamercolor[bg]{Namkeen}dark blue (\{RGB\}\{33,26,82\})}
+    \end{itemize}
+    You can use these colors in the standard beamer way by using the command
+    {\tt \textbackslash usebeamercolor[<fg or bg>]\{Namkeen\}}. See the beamer manual for instructions.\\
+ \pause Note that this version of the theme follows official NUST Colors. However, you can easily change it (including the logo) by following the steps in {\tt beamercolorthemeNamkeen.sty}.
+  \end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%
+
+\subsection{Compilation}
+% compilation
+\begin{frame}{User Interface}{Compilation}
+
+\begin{block}{Compiling Your Presentation With Namkeen Theme}
+  Unlike most other beamer themes, this theme must be compiled at least \alert{three} times to make everything look right. For most other themes, you do not have to compile your presentation more than two times. For the Namkeen theme, the third compilation is necessary to determine the position of the circle with the current frame number and the length of the "progress bar".
+\end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%
+
+\subsection{Modifying the theme}
+% how to modify the theme
+{\setbeamercolor{nust}{fg=gray!50,bg=gray}
+ \setbeamercolor{sidebar}{bg=red!20}
+ \setbeamercolor{structure}{fg=red}
+ \setbeamercolor{frametitle}{use=structure,fg=structure.fg}
+ \setbeamercolor{normal text}{bg=gray!20}
+\begin{frame}{User Interface}{Modifying the Theme}
+  \begin{itemize}
+    \item<1-> The default configuration of fonts, colors, and layout complies with the \chref{http://https://nust.edu.pk/about-us/nust-brand/}{NUST Branding - Logo and Text} and is the \alert{unofficially official} version of the theme.
+    \item<2-> However, you can modify specific elements of the theme through the templates provided by the beamer class. Please refer to the beamer user manual for instructions.
+    \item<3-> For example, on this slide the following commands have been used
+      \begin{itemize}
+        \item Change the bar and sidebar colors:\\
+        {\tt \textbackslash setbeamercolor\{nust\}\{fg=gray!50,bg=gray\}}
+        {\tt \textbackslash setbeamercolor\{sidebar\}\{bg=red!20\}}
+        \item Change the color of the structural elements:\\
+        {\tt \textbackslash setbeamercolor\{structure\}\{fg=red\}}\\
+        \item Change the frame title text color:
+        {\tt \textbackslash setbeamercolor\{frametitle\}\{use=structure, fg=structure.fg\}}
+        \item Change the background color of the text
+        {\tt \textbackslash setbeamercolor\{normal text\}\{bg=gray!20\}}
+      \end{itemize}
+  \end{itemize}
+\end{frame}}
+%%%%%%%%%%%%%%%%
+
+\subsection{Background}
+% the  Waves background
+\begin{frame}{User Interface}{The Background Image}
+\begin{block}{The Background Image}
+\begin{itemize}
+  \item<1-> In this documentation, the title page frame and the last frame have the waves as the background image. The waves background image can be added to any single frame by wrapping a frame in the following way\\
+  {\tt \{\textbackslash wavesbg\\
+    \textbackslash begin\{frame\}[<options>]\{Frame Title\}\{Frame Subtitle\}\\
+    \ldots\\
+    \textbackslash end\{frame\}\}}
+  \item<2-> Ideally, I would like to create a new frame option called {\tt wavesbg} which can enable the waves background. However, I have not been able to figure out how such an option can be added.
+\end{itemize}
+\end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%
+
+\subsection{Widescreen Support}
+% Widescreen Support
+\begin{frame}{User Interface}{Widescreen Support}
+\begin{block}{Widescreen Support}
+  Newer projectors and almost any modern TV support a widescreen format such as 16:10 or 16:9. Beamer (>= v. 3.10) supports various aspect ratios of the slides. According to section 8.3 on page 77 of the Beamer user guide v. 3.10, you can write\\
+{\tt\textbackslash documentclass[aspectratio=1610]\{beamer\}}\\
+to get slides with an aspect ratio of 16:10. You can also use 169, 149, 54, 43 (default), and 32 to get other aspect ratios.
+\end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%
+
+
+\section{Feedback}
+\subsection{Contact Information}
+% contact information
+\begin{frame}{Feedback}{Contact Information}
+In case you have any comments, suggestions or have found a bug, please do not hesitate to contact me. You can find my contact details below.
+  \begin{center}
+    \insertauthor\\
+    \chref{https://github.com/hasanalikhattak/namkeen}{https://github.com/hasanalikhattak/namkeen}\\
+    Dept.\ of Computing\\  
+    School of Electrical Engineering and Computer Science\\ 
+    NUST, Sector H12\\Islamabad, 44500 Pakistan.
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%
+
+{\wavesbg%
+\begin{frame}[plain,noframenumbering]%
+  \finalpage{Thank you for using this theme!}
+\end{frame}}
+%%%%%%%%%%%%%%%%
+
+\end{document}

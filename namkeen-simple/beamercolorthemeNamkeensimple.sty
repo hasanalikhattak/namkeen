@@ -1,0 +1,34 @@
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You can find the GNU General Public License at <http://www.gnu.org/licenses/>.
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamercolorthemeNamkeensimple}[2013/05/25 v1.2.0 The Namkeen Simple Beamer Theme]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Theme options and definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%beamer specific options
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mode<presentation>%refers to the first four modes (beamer,handout,second and trans). That is, to all modes except the article mode
+{
+  \definecolor{beamer@barcolor}{RGB}{0,72,121}% light blue
+  \definecolor{beamer@headercolor}{RGB}{0,72,121}% dark blue
+  \definecolor{beamer@normaltextcolor}{RGB}{84,97,110}% gray blue
+  
+  \setbeamercolor{structure}{fg=beamer@headercolor}
+  \setbeamercolor{normal text}{fg=beamer@normaltextcolor}
+  \setbeamercolor{frametitle}{fg=white,bg=beamer@headercolor}
+  \setbeamercolor{Namkeensimple}{fg=beamer@barcolor,bg=beamer@headercolor}
+}%end of beamer specific options
+
+\mode<all>
