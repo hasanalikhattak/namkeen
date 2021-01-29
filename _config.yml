@@ -1,5 +1,7 @@
 ---
 title: Namkeen
+url: khattak.info/namkeen
+description: "This collection of themes takes queues from NUST branding and using beamer as LaTeX template." 
 timezone: UTC
 collections:
   posts:
